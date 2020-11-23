@@ -3,6 +3,7 @@ package cn.niter.forum.util;
 import cn.niter.forum.dto.ResultDTO;
 import cn.niter.forum.dto.UserDTO;
 import cn.niter.forum.exception.CustomizeErrorCode;
+import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -63,7 +64,7 @@ public class TokenUtils {
             userDTO.setGroupId(map.get("groupId").asInt());
             Map<String, String> resultMap = new HashMap<>(map.size());
             map.forEach((k, v) -> resultMap.put(k, v.asString()));
-            //System.out.println("resultMap" + JSON.toJSONString(resultMap));
+            System.out.println("resultMap" + JSONObject.toJSONString(resultMap));
             return ResultDTO.okOf(userDTO);
 
         } catch (JWTVerificationException e) {

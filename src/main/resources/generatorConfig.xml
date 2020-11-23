@@ -9,9 +9,9 @@
         
         <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://***:3306/community"
-                        userId="***"
-                        password="****">
+                        connectionURL="jdbc:mysql://47.106.180.89:3306/community"
+                        userId="root"
+                        password="426530haha@XI">
         </jdbcConnection>
 
         <javaTypeResolver>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图片验证</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/fontawesome/css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common/imageValidate.css" />
+</head>
+<body>
+    <div id="container">
+        <div class="imageDiv">
+            <img id="validateImage" src=""/>
+            <img id="slideImage" src=""/>
+        </div>
+        <div class="resultDiv">
+            <button class="btn btn-success" onclick="exchange();"><i class="fas fa-redo"></i>&nbsp;换一组</button>
+            <span id="operateResult"></span>
+        </div>
+        <div>
+            <div id="sliderOuter">
+                <div id="dragDiv">拖动滑块完成拼图</div>
+                <div id="sliderInner">
+                    <i class="fas fa-angle-double-right"></i>
+                    <div class="coverIcon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script th:inline="javascript">
+    var telephone = [[${telephone}]];
+</script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js" ></script>
+<script type="text/javascript" src="/layui/layui.js"></script>
+<script type="text/javascript" src="/js/common/imageValidate.js" ></script>
+</html>

@@ -60,10 +60,10 @@ public class MailController {
                               @RequestParam("mail") String mail,
                               @RequestParam("ip") String ip,
                               @RequestParam("token") String token) {
-        if ((!token.equals(ipLimitCache.getInterval(ip))) || (ipLimitCache.showIpScores(ip) >= 100)) {
+       /* if ((!token.equals(ipLimitCache.getInterval(ip))) || (ipLimitCache.showIpScores(ip) >= 100)) {
             ipLimitCache.addIpScores(ip, 10);
             return ResultDTO.errorOf(CustomizeErrorCode.SEND_MAIL_FAILED);
-        }
+        }*/
 
         // TODO 自动生成的方法存根
         try {

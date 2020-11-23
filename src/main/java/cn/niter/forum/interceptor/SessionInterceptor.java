@@ -56,7 +56,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         String host = request.getHeader("host");//客户端指定自己想访问的WEB服务器的域名/IP 地址和端口号。 在任何类型请求中，request都会包含此header信息。
        //处理静态资源
-       if (handler instanceof ResourceHttpRequestHandler){
+      if (handler instanceof ResourceHttpRequestHandler){
            if(referer!=null&&(!host.equals(referer.split("//")[1].split("/")[0]))){//静态资源防盗链
                response.setStatus(403);
                return false;
@@ -77,14 +77,19 @@ public class SessionInterceptor implements HandlerInterceptor {
         }*/
         HandlerMethod handlerMethod=(HandlerMethod)handler;
         Method method=handlerMethod.getMethod();
+        System.out.println("逃脱了 ResourceHttpRequestHandler ########################");
         String token=null;
         ResultDTO resultDTO=null;
         Cookie[] cookies = request.getCookies();
+        boolean flag = cookies!=null;
+        System.out.println("cookies!=null&&cookies.length!=0 " + flag + "" +cookies.length);
+
         boolean hashToken = false;
         if(cookies!=null&&cookies.length!=0){
             for (Cookie cookie : cookies) {
                 if(cookie.getName().equals("token")){
                     token=cookie.getValue();
+                    System.out.println("cookie.value:" + token);
                     if(token!=null) {
                         hashToken=true;
                         resultDTO = tokenUtils.verifyToken(token);

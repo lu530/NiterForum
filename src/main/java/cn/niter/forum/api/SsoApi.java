@@ -42,8 +42,9 @@ public class SsoApi {
                         HttpServletResponse response) {
         //1为手机号，2为邮箱号
         ResultDTO resultDTO = (ResultDTO)userService.login(type,name,password);
+        System.out.println("resultDTO data:" + resultDTO.getData());
         if(200==resultDTO.getCode()){
-            Cookie cookie = cookieUtils.getCookie("token",""+resultDTO.getData(),86400*3);
+            Cookie cookie = cookieUtils.getCookie("token","" + resultDTO.getData(),86400*3);
             response.addCookie(cookie);
         }
         return resultDTO;
